@@ -1,5 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<%# cl_image_tag("xwu48z9oipkrjhaw74sw",
+      width: 400, height: 300, crop: :fill) %>
+
+<%# cl_image_tag("xwu48z9oipkrjhaw74sw",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+
+<%# cl_image_tag(@article.photo.key, height: 300, width: 400, crop: :fill) if @article.photo.attached? %>
+<%# unless @article.photo.attached? %>
+  <!-- <p>No photo attached</p> -->
+<%# end %>
+
+
+<% @article.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
